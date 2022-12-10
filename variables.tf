@@ -1,6 +1,9 @@
-# variable "config" {
-#   description = "The config for creating this module."
-#   type = object({
-#     name = string
-#   })
-# }
+variable "config" {
+  description = "The config to create ECR with."
+  type = object({
+    kms-key-arn         = optional(string, null)
+    repository-name     = string
+    scan-images-on-push = optional(bool, true)
+  })
+}
+

@@ -1,16 +1,8 @@
-# terraform-module
+# terraform-aws-ecr
 
-![CI Terraform](https://github.com/benniemosher-dev/terraform-module/actions/workflows/ci-terraform.yml/badge.svg)
+![CI Terraform](https://github.com/benniemosher-dev/terraform-aws-ecr/actions/workflows/ci-terraform.yml/badge.svg)
 
-🧱 A Terraform module template repo 🧱
-
-## ✅ TODO:
-
-Things to change when first creating a module:
-
-- [ ] In `README.md` change `terraform-module` to the name of this module (i.e. `terraform-cloudflare-record`)
-- [ ] In `.github/workflows/ci-terraform.yml` delete lines 13-14 enabling cost
-- [ ] In `README.md` delete the [TODO](README.md#todo) section
+📦 A TF module for AWS ECR. 📦
 
 ## 📜 Usage:
 
@@ -70,10 +62,13 @@ Things to change when first creating a module:
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.3 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 4.40 |
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.46.0 |
 
 ## Modules
 
@@ -81,13 +76,19 @@ No modules.
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [aws_ecr_repository.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository) | resource |
 
 ## Inputs
 
-No inputs.
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_config"></a> [config](#input\_config) | The config to create ECR with. | <pre>object({<br>    kms-key-arn         = optional(string, null)<br>    repository-name     = string<br>    scan-images-on-push = optional(bool, true)<br>  })</pre> | n/a | yes |
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_url"></a> [url](#output\_url) | The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`). |
 <!-- END_TF_DOCS -->
